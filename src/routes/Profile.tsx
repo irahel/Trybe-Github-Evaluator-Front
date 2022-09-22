@@ -1,10 +1,11 @@
 import '../styles/main.css';
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement } from 'chart.js';
+import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CheckCircle } from 'phosphor-react';
+import { AvaliationItem } from '../components/AvaliationItem';
+
 
 ChartJS.register(ArcElement);
-
-
 
 export function Profile() {
 
@@ -21,7 +22,7 @@ export function Profile() {
       };
 
     return (
-    <div className='max-w-[1366px] max-h-[768px] mx-auto flex flex-col items-center my-24'>      
+    <div className='max-w-[1366px] max-h-[2000px] mx-auto flex flex-col items-center mt-24'>      
 
         <h1 className='text-white font-bold text-6xl'>
             Seu perfil é nota: 8
@@ -30,18 +31,107 @@ export function Profile() {
         <div className='bg-white w-72 h-72 mt-12 rounded-full  
         border-[25px] border-[#0067F5] border-t-white border-l-yellow-400'/>
     */}
-        <div className="w-72 h-72 mt-12">
+        <div className="w-72 h-72 mt-20 relative items-center justify-center">
             <Doughnut 
             
             options={{            
                 responsive: true,
                 maintainAspectRatio: true,            
             }}
-            data={data}/>;
+            data={data}/>
+
+            <img 
+            className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
+            src="https://avatars.githubusercontent.com/u/27247046?v=4" />
+
+            {/*&#129321;*/}
+     
+            <h1
+            className='text-7xl absolute top-[210px] right-[5px] '
+            >
+             
+            </h1>
+        </div>
+
+        <h2 className='text-white font-bold text-4xl mt-12'>
+            irahel
+        </h2>
+
+        <CaretDoubleDown 
+            className='text-white mt-24 animate-bounce'
+            size={96} />
+
+        <div
+            className='flex flex-col items-start gap-14 mt-14'>
+
+            <AvaliationItem                 
+                question="Foto de perfil mostra seu rosto?"
+                passed={true}/>
+            
+            <AvaliationItem 
+                question="Tem um README só seu?"
+                passed={true}/>
+
+            <AvaliationItem 
+                question="Colocou seu email no README?"
+                passed={true}/>
+
+            <AvaliationItem 
+                question="Colocou seu LinkedIn no GitHub?"
+                passed={true}/>
+            
+            <AvaliationItem 
+                question="Tem mais de 4 tecnologias no seu README?"
+                passed={true}/>
+
+            <AvaliationItem 
+                question="Tem mais de 9 tecnologias no seu README?"
+                passed={true}/>
+
+            <AvaliationItem 
+                question="Tem mais de 4 repositórios públicos no seu GitHub?"
+                passed={true}/>
+
+            <AvaliationItem 
+                question="Tem mais de 9 repositórios públicos no seu GitHub?"
+                passed={true}/>
+
+            <AvaliationItem 
+                question="Tem mais de 1 repositório fixado no seu perfil?"
+                passed={false}/>
+
+            <AvaliationItem 
+                question="Tem mais de 4 repositórios fixado no seu perfil?"
+                passed={false}/>
+
         </div>
         
+        <div className='flex flex-row items-center justify-center gap-8 mt-14'>
+            <button
+                className='bg-white w-48 h-14 flex items-center justify-center gap-2
+                rounded-2xl'>
+                <ArrowDown size={22}  className="text-[#3FBB90]"/>
+                <h2 className="text-[#3FBB90] font-semibold text-base">Baixar resultado</h2>            
+            </button>
+            
+            <button
+                className='bg-transparent w-48 h-14 flex items-center justify-center gap-2
+                rounded-2xl border-[3px] border-white'>
+                <ArrowsClockwise size={22}  className="text-white"/>
+                <h2 className="text-white font-semibold text-base">Fazer novo teste</h2>            
+            </button>
+        </div>
 
- 
+        <h2
+            className='font-bold text-white text-xl max-w-[250px] text-center mt-16'>
+        Avaliação realizada em: 21 de Setembro de 2022
+        </h2>
+                
+        <div className="text-white text-xl text-center 
+        h- bg-[#1A9D7E]k">
+            Developed by: irahel and felipmartins              
+        </div>
+        
 
     </div>
     )
