@@ -1,0 +1,50 @@
+import { MagnifyingGlass } from "phosphor-react";
+
+export function Search(){
+    return (
+        <form className='mt-32' >
+        <div className='relative items-center flex group'>
+          <input 
+            className="rounded-full w-[580px] h-20 bg-white
+            text-2xl text-[#0B5A47]
+            pl-9                 
+            peer
+            outline-none"
+            required
+            id="github_user" 
+            type="text" 
+            />
+            <label htmlFor="github_user" className="transform transition-transform
+            absolute top-0 left-0 h-full flex 
+            items-center 
+            group-focus-within:text-2xl
+            group-focus-within:text-white
+            peer-valid:text-2xl 
+            group-focus-within:h-1/2 
+            peer-valid:h-1/2 
+            group-focus-within:-translate-y-full 
+            peer-valid:-translate-y-full 
+            group-focus-within:pl-6 peer-valid:pl-6
+
+            text-opacity-40 text-2xl text-black pl-9                        
+            ">
+              Digite o usuário do seu Github:
+            </label>
+          <button className='w-32 h-32 bg-[#30B084] 
+            rounded-full absolute left-[463px] 
+            border-white border-8
+            items-center
+            hover:bg-[#0B5A47]
+            hover:border-[10px]'>
+            <MagnifyingGlass className='flex' color='white' size={60} />
+          </button>
+        </div>
+
+        <h2 className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
+        Ou que tal fazer <a className='text-[#0B5A47]'>múltiplas avaliações</a> via csv
+      </h2>
+
+
+      </form>
+    )
+}
