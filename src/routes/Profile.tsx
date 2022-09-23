@@ -5,10 +5,17 @@ import { Chart as ChartJS, ArcElement } from 'chart.js';
 import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
 import '../styles/main.css';
+import svg90 from '../../public/emojs/90.svg'
+import svg60 from '../../public/emojs/60.svg'
+import svg40 from '../../public/emojs/40.svg'
+import svg20 from '../../public/emojs/20.svg'
+import svg0 from '../../public/emojs/0.svg'
 
 ChartJS.register(ArcElement);
 
 export function Profile() {
+
+
     const navigate = useNavigate();
     const location = useLocation();
     const githubaval = location.state;
@@ -32,15 +39,21 @@ export function Profile() {
         githubaval.grade >= 60? '#8958A3' : 
         githubaval.grade >= 40? '#A38958' : 
         githubaval.grade >= 20? '#C12F2F' : 
-                                '#322626'
+                                '#322626';
     
     const grade_color_hover = 
         githubaval.grade >= 90? '#0052c4' : 
         githubaval.grade >= 60? '#6e4682' : 
         githubaval.grade >= 40? '#826e46' : 
         githubaval.grade >= 20? '#9a2626' : 
-                                '#281e1e'
-    
+                                '#281e1e';
+
+    const grade_emoj= 
+    githubaval.grade >= 90?  svg90 :  
+    githubaval.grade >= 60?  svg60 : 
+    githubaval.grade >= 40?  svg40 : 
+    githubaval.grade >= 20?  svg20: 
+                             svg0   
 
     const data = {
         labels: ["I"],
@@ -73,9 +86,8 @@ export function Profile() {
                     className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
                     src={githubaval?.img_url} />
                 
-                <h1 className='text-7xl absolute top-[210px] right-[5px]'>
-                    {/*&#129321;*/}
-                </h1>
+                <img src={grade_emoj} className='w-20 h-20 absolute top-[210px] right-[5px]'/>
+                                                        
             </div>
 
             <h2 className='text-white font-bold text-4xl mt-12'>
