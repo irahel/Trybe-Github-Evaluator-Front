@@ -1,12 +1,10 @@
-import '../styles/main.css';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement } from 'chart.js';
-import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, CheckCircle } from 'phosphor-react';
+import '../styles/main.css';
+import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
-import { useEffect, useState } from 'react';
-import { responseProps } from '../components/Search';
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 ChartJS.register(ArcElement);
 
@@ -25,7 +23,7 @@ export function Profile() {
     const scrollToTop = () => {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth' // for smoothly scrolling
+          behavior: 'smooth'
         });
       };
       
@@ -33,7 +31,7 @@ export function Profile() {
         labels: ["I"],
         datasets: [
           {
-            data: [20, 80],
+            data: [100-githubaval.grade, githubaval.grade],
             backgroundColor: ["white", "#0067F5"],
             hoverBackgroundColor: ["white", "#0F5FCC"],
             borderWidth: 0
@@ -47,18 +45,14 @@ export function Profile() {
         <h1 className='text-white font-bold text-6xl'>
             Seu perfil é nota: {githubaval?.grade}
         </h1>
-        {/*
-        <div className='bg-white w-72 h-72 mt-12 rounded-full  
-        border-[25px] border-[#0067F5] border-t-white border-l-yellow-400'/>
-    */}
+
         <div className="w-72 h-72 mt-20 relative items-center justify-center">
-            <Doughnut 
-            
-            options={{            
-                responsive: true,
-                maintainAspectRatio: true,            
-            }}
-            data={data}/>
+            <Doughnut             
+                options={{            
+                    responsive: true,
+                    maintainAspectRatio: true,            
+                }}
+                data={data}/>
 
             <img 
             className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
