@@ -1,23 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './routes/App'
-
 import { Profile }  from './routes/Profile';
 
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
+  RouterProvider
 } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Profile/>
+    element: <App/>
+  },
+  {
+    path: "/aval",
+    element: <Profile />,
   },
 ]);
 
-
+{/*TODO: error page*/}
+{/*TODO: teapot*/}
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />

@@ -6,7 +6,7 @@ export function Loading(){
             <span className="h-32 w-32 block rounded-full border-[12px] border-white border-t-[#30B084] animate-spin"></span>            
             </div>            
         </div>
-        <h2 className='text-white font-medium italic text-3xl mt-12'>
+        <h2 className='text-white font-medium italic text-3xl mt-8'>
             Calculando sua nota...
         </h2>    
     </div>    

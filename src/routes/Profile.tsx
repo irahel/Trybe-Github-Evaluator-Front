@@ -4,13 +4,19 @@ import { Chart as ChartJS, ArcElement } from 'chart.js';
 import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, CheckCircle } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
 import { useEffect, useState } from 'react';
-
+import { responseProps } from '../components/Search';
+import { useLocation } from "react-router-dom";
 
 ChartJS.register(ArcElement);
 
 export function Profile() {
 
+    const location = useLocation();
+
+    console.log(location.state);
+    const githubaval = location.state;
     const [showButton, setShowButton] = useState(false);
+
     useEffect(() => {
         window.addEventListener("scroll", () => {
             setShowButton(window.pageYOffset > 300);
@@ -40,7 +46,7 @@ export function Profile() {
     <div className='flex flex-col items-center mt-24 scrollbar-hide'>      
 
         <h1 className='text-white font-bold text-6xl'>
-            Seu perfil é nota: 8
+            Seu perfil é nota: {githubaval?.grade}
         </h1>
         {/*
         <div className='bg-white w-72 h-72 mt-12 rounded-full  
@@ -57,7 +63,7 @@ export function Profile() {
 
             <img 
             className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
-            src="https://avatars.githubusercontent.com/u/27247046?v=4" />
+            src={githubaval?.img_url} />
 
             {/*&#129321;*/}
      
@@ -69,7 +75,7 @@ export function Profile() {
         </div>
 
         <h2 className='text-white font-bold text-4xl mt-12'>
-            irahel
+            {githubaval?.github_user}
         </h2>
 
         <CaretDoubleDown 
@@ -81,43 +87,43 @@ export function Profile() {
 
             <AvaliationItem                 
                 question="Foto de perfil mostra seu rosto?"
-                passed={true}/>
+                passed={githubaval?.has_photo? true : false }/>
             
             <AvaliationItem 
                 question="Tem um README só seu?"
-                passed={true}/>
+                passed={githubaval?.has_linkedin? true : false }/>
 
             <AvaliationItem 
                 question="Colocou seu email no README?"
-                passed={true}/>
+                passed={githubaval?.has_email? true : false }/>
 
             <AvaliationItem 
                 question="Colocou seu LinkedIn no GitHub?"
-                passed={true}/>
+                passed={githubaval?.has_linkedin? true : false}/>
             
             <AvaliationItem 
                 question="Tem mais de 4 tecnologias no seu README?"
-                passed={true}/>
+                passed={githubaval?.has_five_or_more_stacks? true : false}/>
 
             <AvaliationItem 
                 question="Tem mais de 9 tecnologias no seu README?"
-                passed={true}/>
+                passed={githubaval?.has_ten_or_more_stacks? true : false}/>
 
             <AvaliationItem 
                 question="Tem mais de 4 repositórios públicos no seu GitHub?"
-                passed={true}/>
+                passed={githubaval?.has_five_or_more_repos? true : false}/>
 
             <AvaliationItem 
                 question="Tem mais de 9 repositórios públicos no seu GitHub?"
-                passed={true}/>
+                passed={githubaval?.has_ten_or_more_repos? true : false}/>
 
             <AvaliationItem 
                 question="Tem mais de 1 repositório fixado no seu perfil?"
-                passed={false}/>
+                passed={githubaval?.has_two_or_more_pinned? true : false}/>
 
             <AvaliationItem 
                 question="Tem mais de 4 repositórios fixado no seu perfil?"
-                passed={false}/>
+                passed={githubaval?.has_four_or_more_pinned? true : false}/>
 
         </div>
         
