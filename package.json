@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "aos": "^2.3.4",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
     "localforage": "^1.10.0",
@@ -25,6 +26,7 @@
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/node": "^18.7.18",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",

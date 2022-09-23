@@ -1,4 +1,4 @@
-import { Alien, Check, X } from "phosphor-react";
+import { Check, X } from "phosphor-react";
 
 interface AvaliationItemProps{
     question: string,
@@ -7,9 +7,9 @@ interface AvaliationItemProps{
 
 export function AvaliationItem({question, passed}: AvaliationItemProps) {
     return (
-        <div 
-            className='flex items-center gap-3
-            motion-safe:animate-fadeIn'>                        
+        <div           
+            data-aos="fade-up"          
+            className='flex items-center gap-3'>                        
             {
             passed? 
                 <div className="bg-[#B7EECE] rounded-full w-12 h-12 flex items-center justify-center

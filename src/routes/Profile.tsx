@@ -10,11 +10,17 @@ import svg60 from '../../public/emojs/60.svg'
 import svg40 from '../../public/emojs/40.svg'
 import svg20 from '../../public/emojs/20.svg'
 import svg0 from '../../public/emojs/0.svg'
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 ChartJS.register(ArcElement);
 
 export function Profile() {
-
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, []);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -70,8 +76,11 @@ export function Profile() {
     return (
     <div className='flex flex-col items-center scrollbar-hide'>      
         <section className='h-screen flex flex-col items-center justify-center'>
-            <h1 className='text-white font-bold text-6xl'>
-                Seu perfil é nota: {githubaval?.grade}
+            <h1                 
+                className='text-white font-bold text-6xl flex flex-row justify-center'>
+                Seu perfil é nota: 
+                <span
+                    data-aos="fade-down">  {githubaval?.grade}</span>
             </h1>
 
             <div className="w-72 h-72 mt-20 relative items-center justify-center">
@@ -83,24 +92,31 @@ export function Profile() {
                     data={data}/>
 
                 <img 
+                data-aos="fade"  
                     className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
                     src={githubaval?.img_url} />
                 
-                <img src={grade_emoj} className='w-20 h-20 absolute top-[210px] right-[5px]'/>
-                                                        
+                <img
+                    data-aos="fade-up"                           
+                    src={grade_emoj} 
+                    className='w-20 h-20 absolute top-[210px] right-[5px]'/>
+
             </div>
 
-            <h2 className='text-white font-bold text-4xl mt-12'>
+            <h2 
+                
+                className='text-white font-bold text-4xl mt-12'>
                 {githubaval?.github_user}
             </h2>
 
             <CaretDoubleDown 
+                data-aos="fade-down"        
                 className='text-white mt-24 animate-bounce'
                 size={96} />
 
         </section>
 
-        <section
+        <section        
             className='flex flex-col items-start gap-14 mt-14'>
 
             <AvaliationItem                 
@@ -147,6 +163,7 @@ export function Profile() {
         
         <div className='flex flex-row items-center justify-center gap-8 mt-14'>
             <button
+                data-aos="fade-up"  
                 className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
                 rounded-2xl 
                 hover:bg-[#1A9D7E] '>
@@ -157,6 +174,7 @@ export function Profile() {
             </button>
             
             <button
+                data-aos="fade-up"  
                 className='bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
                 rounded-2xl border-[3px] border-white
                 hover:bg-[#1A9D7E]'
@@ -168,6 +186,7 @@ export function Profile() {
         </div>
 
         <h2
+            data-aos="fade-up"  
             className='font-bold text-white text-xl max-w-[250px] text-center mt-16'>
         Avaliação realizada em: 21 de Setembro de 2022
         </h2>
@@ -178,9 +197,12 @@ export function Profile() {
         </button>
       )}
         
-        <div className="text-white text-xl text-center 
+        <div 
+        
+        className="text-white text-xl text-center 
         flex items-center justify-center
-        h-24 w-full bg-[#1A9D7E]">
+        h-24 w-full bg-[#1A9D7E]
+        ">
             <h1>
             Developed by:  
             <a 
