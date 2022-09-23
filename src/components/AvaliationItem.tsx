@@ -8,9 +8,8 @@ interface AvaliationItemProps{
 export function AvaliationItem({question, passed}: AvaliationItemProps) {
     return (
         <div 
-        className='flex items-center gap-3
-        motion-safe:animate-fadeIn'
-        >                        
+            className='flex items-center gap-3
+            motion-safe:animate-fadeIn'>                        
             {
             passed? 
                 <div className="bg-[#B7EECE] rounded-full w-12 h-12 flex items-center justify-center

@@ -1,11 +1,10 @@
-import '../styles/main.css';
+import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './Home';
 import { Profile }  from './Profile';
-import ReactDOM from "react-dom/client";
+import '../styles/main.css';
 
-export default function App() {
-  
+export default function App() {  
   return (
     <BrowserRouter>
       <Routes>

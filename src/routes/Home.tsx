@@ -1,18 +1,16 @@
-import { GithubLogo } from "phosphor-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { GithubLogo } from "phosphor-react";
 import { Search } from '../components/Search';
 import { Loading } from "../components/Loading";
-import { useNavigate } from "react-router-dom";
 import { responseProps } from '../components/Search';
 
 
 export function Home(){
     const navigate = useNavigate();
-    
     const NavigateToAval=(github_aval: responseProps)=>{        
-        navigate('/aval',{state:github_aval});
+      navigate('/aval',{state:github_aval});
     }
-
     const [loading, setLoading] = useState(false);    
     
     return (

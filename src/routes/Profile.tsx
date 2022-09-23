@@ -55,15 +55,11 @@ export function Profile() {
                 data={data}/>
 
             <img 
-            className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
-            src={githubaval?.img_url} />
-
-            {/*&#129321;*/}
-     
-            <h1
-            className='text-7xl absolute top-[210px] right-[5px] '
-            >
+                className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
+                src={githubaval?.img_url} />
              
+            <h1 className='text-7xl absolute top-[210px] right-[5px]'>
+                {/*&#129321;*/}
             </h1>
         </div>
 
@@ -167,8 +163,7 @@ export function Profile() {
             target="_blank" href='https://github.com/felipmartins'><strong> felipmartins</strong></a>                          
             </h1>
         </div>
-        
-
+                
     </div>
     )
 }

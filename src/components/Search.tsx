@@ -1,7 +1,7 @@
-import { MagnifyingGlass } from "phosphor-react";
-import { Link } from "react-router-dom";
-import axios from 'axios';
 import { FormEvent} from "react";
+import { Link } from "react-router-dom";
+import { MagnifyingGlass } from "phosphor-react";
+import axios from 'axios';
 
 export interface responseProps{
   github_user: string,
@@ -24,7 +24,6 @@ export interface formProps{
 
 export function Search({loadingIndicator, redirectIndicator}: formProps){
   
-
     /*TODO: validações e try catch*/
     async function handleCalculateAval(event: FormEvent){
       event.preventDefault();
@@ -94,8 +93,8 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
           </div>
 
           <h2 className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
-          Ou que tal fazer <a className='text-[#0B5A47]'>múltiplas avaliações</a> via csv
-        </h2>
+            Ou que tal fazer <a className='text-[#0B5A47]'>múltiplas avaliações</a> via csv
+          </h2>
       </form>      
     )
 }
