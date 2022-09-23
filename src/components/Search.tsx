@@ -52,9 +52,13 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
     }
 
     return (      
-        <form className='mt-32 ' onSubmit={handleCalculateAval} >
+        <form 
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        className='mt-32 ' onSubmit={handleCalculateAval} >
           <div className='relative items-center flex group'>
             <input 
+            
               className="rounded-full w-[580px] h-20 bg-white
               text-2xl text-[#0B5A47]
               pl-9                 
@@ -80,7 +84,9 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
               ">
                 Digite o usuário do seu Github:
               </label>
-            <button className='w-32 h-32 bg-[#30B084] 
+            <button 
+              data-aos="fade-left"              
+              className='w-32 h-32 bg-[#30B084] 
               rounded-full absolute left-[463px] 
               border-white border-8
               items-center
@@ -92,7 +98,10 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
             </button>
           </div>
 
-          <h2 className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
+          <h2 
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
             Ou que tal fazer <a className='text-[#0B5A47]'>múltiplas avaliações</a> via csv
           </h2>
       </form>      

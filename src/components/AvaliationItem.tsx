@@ -8,7 +8,10 @@ interface AvaliationItemProps{
 export function AvaliationItem({question, passed}: AvaliationItemProps) {
     return (
         <div           
-            data-aos="fade-up"          
+            data-aos="fade-up"               
+            data-aos-delay="50"
+            data-aos-duration="1000"                        
+            data-aos-once="false"            
             className='flex items-center gap-3'>                        
             {
             passed? 

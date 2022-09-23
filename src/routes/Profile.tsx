@@ -80,7 +80,8 @@ export function Profile() {
                 className='text-white font-bold text-6xl flex flex-row justify-center'>
                 Seu perfil é nota: 
                 <span
-                    data-aos="fade-down">  {githubaval?.grade}</span>
+                    data-aos="fade-down"
+                    data-aos-duration="1000"         >  {githubaval?.grade}</span>
             </h1>
 
             <div className="w-72 h-72 mt-20 relative items-center justify-center">
@@ -91,13 +92,14 @@ export function Profile() {
                     }}
                     data={data}/>
 
-                <img 
-                data-aos="fade"  
+                {/*TODO: pre-load image in loading screen*/}
+                <img             
                     className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
                     src={githubaval?.img_url} />
                 
                 <img
-                    data-aos="fade-up"                           
+                    data-aos="fade-up"       
+                    data-aos-duration="1000"                             
                     src={grade_emoj} 
                     className='w-20 h-20 absolute top-[210px] right-[5px]'/>
 
@@ -110,7 +112,8 @@ export function Profile() {
             </h2>
 
             <CaretDoubleDown 
-                data-aos="fade-down"        
+                data-aos="fade-down"    
+                data-aos-duration="1000"             
                 className='text-white mt-24 animate-bounce'
                 size={96} />
 
