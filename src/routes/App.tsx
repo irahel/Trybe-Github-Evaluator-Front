@@ -1,18 +1,22 @@
 import '../styles/main.css';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './Home';
 import { Profile }  from './Profile';
+import ReactDOM from "react-dom/client";
 
-function App() {
+export default function App() {
   
   return (
-    <Routes>
-        <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
-        <Route path="aval" element={<Profile />} />
-        {/*<Route path="*" element={<NoMatch />} />*/}
+    <BrowserRouter>
+      <Routes>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="aval" element={<Profile />} />
+          {/*<Route path="*" element={<NoMatch />} />*/}
       </Routes>
+    </BrowserRouter>
   )
 }
 
-export default App
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(<App />);
