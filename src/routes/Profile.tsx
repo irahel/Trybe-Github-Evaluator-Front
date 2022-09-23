@@ -26,14 +26,29 @@ export function Profile() {
           behavior: 'smooth'
         });
       };
-      
+    
+    const grade_color = 
+        githubaval.grade >= 90? '#0067F5' : 
+        githubaval.grade >= 60? '#8958A3' : 
+        githubaval.grade >= 40? '#A38958' : 
+        githubaval.grade >= 20? '#C12F2F' : 
+                                '#322626'
+    
+    const grade_color_hover = 
+        githubaval.grade >= 90? '#0052c4' : 
+        githubaval.grade >= 60? '#6e4682' : 
+        githubaval.grade >= 40? '#826e46' : 
+        githubaval.grade >= 20? '#9a2626' : 
+                                '#281e1e'
+    
+
     const data = {
         labels: ["I"],
         datasets: [
           {
             data: [100-githubaval.grade, githubaval.grade],
-            backgroundColor: ["white", "#0067F5"],
-            hoverBackgroundColor: ["white", "#0F5FCC"],
+            backgroundColor: ["white", grade_color],
+            hoverBackgroundColor: ["white", grade_color_hover],
             borderWidth: 0
           }
         ]
