@@ -9,8 +9,7 @@ import { responseProps } from '../components/Search';
 export function Home(){
     const navigate = useNavigate();
     
-    const NavigateToAval=(github_aval: responseProps)=>{
-        console.log(github_aval)
+    const NavigateToAval=(github_aval: responseProps)=>{        
         navigate('/aval',{state:github_aval});
     }
 

@@ -24,6 +24,7 @@ export interface formProps{
 
 export function Search({loadingIndicator, redirectIndicator}: formProps){
   
+
     /*TODO: validações e try catch*/
     async function handleCalculateAval(event: FormEvent){
       event.preventDefault();

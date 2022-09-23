@@ -6,14 +6,13 @@ import { AvaliationItem } from '../components/AvaliationItem';
 import { useEffect, useState } from 'react';
 import { responseProps } from '../components/Search';
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 ChartJS.register(ArcElement);
 
 export function Profile() {
-
+    const navigate = useNavigate();
     const location = useLocation();
-
-    console.log(location.state);
     const githubaval = location.state;
     const [showButton, setShowButton] = useState(false);
 
@@ -141,7 +140,8 @@ export function Profile() {
             <button
                 className='bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
                 rounded-2xl border-[3px] border-white
-                hover:bg-[#1A9D7E]'>
+                hover:bg-[#1A9D7E]'
+                onClick={() => navigate('/')}>
                 <ArrowsClockwise size={22}  className="text-white"/>
                 <h2 className="text-white font-semibold text-base pt-1
                  ">Fazer novo teste</h2>            
