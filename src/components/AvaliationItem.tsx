@@ -30,7 +30,7 @@ export function AvaliationItem({question, passed}: AvaliationItemProps) {
             }
                         
             <h2
-                className='text-white font-medium text-2xl max-w-xl'>
+                className='text-white font-medium text-2xl max-w-xl pt-1'>
                 {question}
             </h2>
         </div>

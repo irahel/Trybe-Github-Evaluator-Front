@@ -1,14 +1,29 @@
 import '../styles/main.css';
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement } from 'chart.js';
-import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CheckCircle } from 'phosphor-react';
+import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, CheckCircle } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
+import { useEffect, useState } from 'react';
 
 
 ChartJS.register(ArcElement);
 
 export function Profile() {
 
+    const [showButton, setShowButton] = useState(false);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            setShowButton(window.pageYOffset > 300);
+        });
+      }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // for smoothly scrolling
+        });
+      };
+      
     const data = {
         labels: ["I"],
         datasets: [
@@ -22,7 +37,7 @@ export function Profile() {
       };
 
     return (
-    <div className='max-w-[1366px] max-h-[2000px] mx-auto flex flex-col items-center mt-24'>      
+    <div className='flex flex-col items-center mt-24 scrollbar-hide'>      
 
         <h1 className='text-white font-bold text-6xl'>
             Seu perfil é nota: 8
@@ -108,17 +123,22 @@ export function Profile() {
         
         <div className='flex flex-row items-center justify-center gap-8 mt-14'>
             <button
-                className='bg-white w-48 h-14 flex items-center justify-center gap-2
-                rounded-2xl'>
-                <ArrowDown size={22}  className="text-[#3FBB90]"/>
-                <h2 className="text-[#3FBB90] font-semibold text-base">Baixar resultado</h2>            
+                className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
+                rounded-2xl 
+                hover:bg-[#1A9D7E] '>
+                <ArrowDown size={22}  className="text-[#3FBB90] group-hover:text-white"/>
+                <h2 className="text-[#3FBB90]
+                 group-hover:text-white font-semibold text-base
+                 pt-1">Baixar resultado</h2>            
             </button>
             
             <button
-                className='bg-transparent w-48 h-14 flex items-center justify-center gap-2
-                rounded-2xl border-[3px] border-white'>
+                className='bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
+                rounded-2xl border-[3px] border-white
+                hover:bg-[#1A9D7E]'>
                 <ArrowsClockwise size={22}  className="text-white"/>
-                <h2 className="text-white font-semibold text-base">Fazer novo teste</h2>            
+                <h2 className="text-white font-semibold text-base pt-1
+                 ">Fazer novo teste</h2>            
             </button>
         </div>
 
@@ -127,9 +147,25 @@ export function Profile() {
         Avaliação realizada em: 21 de Setembro de 2022
         </h2>
                 
+        {showButton && (            
+        <button onClick={scrollToTop} className="back-to-top text-white my-8 animate-bounce">
+          <CaretDoubleUp size={32} />
+        </button>
+      )}
+        
         <div className="text-white text-xl text-center 
-        h- bg-[#1A9D7E]k">
-            Developed by: irahel and felipmartins              
+        flex items-center justify-center
+        h-24 w-full bg-[#1A9D7E]">
+            <h1>
+            Developed by:  
+            <a 
+            className='hover:text-[#B7EECE]'
+            target="_blank" href='https://github.com/irahel'><strong> irahel</strong></a>  and  
+
+            <a 
+            className='hover:text-[#B7EECE]'
+            target="_blank" href='https://github.com/felipmartins'><strong> felipmartins</strong></a>                          
+            </h1>
         </div>
         
 
