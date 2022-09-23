@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement } from 'chart.js';
-import '../styles/main.css';
 import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
+import '../styles/main.css';
 
 ChartJS.register(ArcElement);
 
@@ -40,38 +40,40 @@ export function Profile() {
       };
 
     return (
-    <div className='flex flex-col items-center mt-24 scrollbar-hide'>      
-
-        <h1 className='text-white font-bold text-6xl'>
-            Seu perfil é nota: {githubaval?.grade}
-        </h1>
-
-        <div className="w-72 h-72 mt-20 relative items-center justify-center">
-            <Doughnut             
-                options={{            
-                    responsive: true,
-                    maintainAspectRatio: true,            
-                }}
-                data={data}/>
-
-            <img 
-                className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
-                src={githubaval?.img_url} />
-             
-            <h1 className='text-7xl absolute top-[210px] right-[5px]'>
-                {/*&#129321;*/}
+    <div className='flex flex-col items-center scrollbar-hide'>      
+        <section className='h-screen flex flex-col items-center justify-center'>
+            <h1 className='text-white font-bold text-6xl'>
+                Seu perfil é nota: {githubaval?.grade}
             </h1>
-        </div>
 
-        <h2 className='text-white font-bold text-4xl mt-12'>
-            {githubaval?.github_user}
-        </h2>
+            <div className="w-72 h-72 mt-20 relative items-center justify-center">
+                <Doughnut             
+                    options={{            
+                        responsive: true,
+                        maintainAspectRatio: true,            
+                    }}
+                    data={data}/>
 
-        <CaretDoubleDown 
-            className='text-white mt-24 animate-bounce'
-            size={96} />
+                <img 
+                    className="rounded-full w-60 h-60 absolute top-[25px] right-[25px]"
+                    src={githubaval?.img_url} />
+                
+                <h1 className='text-7xl absolute top-[210px] right-[5px]'>
+                    {/*&#129321;*/}
+                </h1>
+            </div>
 
-        <div
+            <h2 className='text-white font-bold text-4xl mt-12'>
+                {githubaval?.github_user}
+            </h2>
+
+            <CaretDoubleDown 
+                className='text-white mt-24 animate-bounce'
+                size={96} />
+
+        </section>
+
+        <section
             className='flex flex-col items-start gap-14 mt-14'>
 
             <AvaliationItem                 
@@ -114,7 +116,7 @@ export function Profile() {
                 question="Tem mais de 4 repositórios fixado no seu perfil?"
                 passed={githubaval?.has_four_or_more_pinned? true : false}/>
 
-        </div>
+        </section>
         
         <div className='flex flex-row items-center justify-center gap-8 mt-14'>
             <button
