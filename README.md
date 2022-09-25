@@ -14,7 +14,7 @@ Front-end application in ReactJS that evaluates a GitHub user profile on 10 crit
 
 ### Architecture diagrams
 
-... \[add diagrams here\]
+![diagram](https://github.com/irahel/Trybe-Github-Evaluator-Front/blob/main/img/diagram.png?raw=true)
 
 ## Setup
 
