@@ -15,9 +15,12 @@ import "aos/dist/aos.css";
 import * as HoverCard from '@radix-ui/react-hover-card';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
+
 ChartJS.register(ArcElement);
 
+
 export function Profile() {
+    
     useEffect(() => {
         AOS.init();
         AOS.refresh();
@@ -168,7 +171,7 @@ export function Profile() {
 
         </section>
         
-        <div className='flex flex-row items-center justify-center gap-8 mt-14'>            
+        <div className='flex flex-row items-center justify-center gap-8 mt-14'>                                  
                 <button
                     data-aos="fade-up"  
                     className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
@@ -178,11 +181,11 @@ export function Profile() {
                     <ArrowDown size={22}  className="text-[#3FBB90] group-hover:text-white"/>
                     <h2 className="text-[#3FBB90]
                     group-hover:text-white font-semibold text-base
-                    pt-1">                        
-                        Baixar resultado                                                
-                        </h2>            
-                        
+                    pt-1">                           
+                        Baixar resultado                                                                    
+                    </h2>                                    
                 </button>            
+                        
             
             <button
                 data-aos="fade-up"  
