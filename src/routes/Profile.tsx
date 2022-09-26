@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement } from 'chart.js';
-import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp } from 'phosphor-react';
+import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, GithubLogo } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
 import '../styles/main.css';
 import svg90 from '../../public/emojs/90.svg'
@@ -12,7 +12,9 @@ import svg20 from '../../public/emojs/20.svg'
 import svg0 from '../../public/emojs/0.svg'
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import * as HoverCard from '@radix-ui/react-hover-card';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 ChartJS.register(ArcElement);
 
@@ -26,7 +28,10 @@ export function Profile() {
     const location = useLocation();
     const githubaval = location.state;
     const [showButton, setShowButton] = useState(false);
+    const [copied, setCopied] = useState(false);
 
+    const apiMarkdown = `<img src='https://tgs.fly.dev/${githubaval?.github_user}'/>`
+      
     useEffect(() => {
         window.addEventListener("scroll", () => {
             setShowButton(window.pageYOffset > 300);
@@ -105,8 +110,7 @@ export function Profile() {
 
             </div>
 
-            <h2 
-                
+            <h2                 
                 className='text-white font-bold text-4xl mt-12'>
                 {githubaval?.github_user}
             </h2>
@@ -186,7 +190,52 @@ export function Profile() {
                 <h2 className="text-white font-semibold text-base pt-1
                  ">Fazer novo teste</h2>            
             </button>
+
+            
+        <div className='flex justify-center'>
+            <HoverCard.Root openDelay={300} closeDelay={100}>
+                <HoverCard.Trigger>
+                    <CopyToClipboard 
+                    text={apiMarkdown}
+                    onCopy={() => {
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 666);
+                    }}
+                    >
+                        <button
+                        data-aos="fade-up"
+                        className='bg-transparent w-14 h-14 flex items-center justify-center group
+                        rounded-full border-[3px] border-white                         
+                        hover:bg-[#1A9D7E]'         
+                        >                                
+                            <GithubLogo color='white' size={32} />                          
+                        </button>                                                
+                    </CopyToClipboard>
+                </HoverCard.Trigger>
+                <HoverCard.Portal>
+                    <HoverCard.Content align='center'   
+                    side='right'        
+                    className='bg-transparent rounded-2xl border-[2px]
+                    border-dashed border-white w-32 h-14
+                    flex items-center justify-center'>
+                        
+                        <HoverCard.Arrow width={9} height={9} fill='white'/>
+                        <h3 className='text-white italic text-center
+                        text-sm'>Adicione ao GitHub!</h3>                            
+                    </HoverCard.Content>
+                </HoverCard.Portal>
+            </HoverCard.Root>
+            {copied &&
+            <h3 className='absolute pt-16 font-bold text-white text-base'
+                data-aos="fade-down"
+                >
+                Copiado!
+            </h3>
+            }
+            
         </div>
+
+    </div>
 
         <h2
             data-aos="fade-up"  
