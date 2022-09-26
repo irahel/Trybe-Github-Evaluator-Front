@@ -42,6 +42,10 @@ This project is using [`react-router-dom v6`](https://reacttraining.com/react-ro
 ```
 - Represents the evaluation page and shows the user grade and specific criteria.
 
+```bash
+/tea or /418
+```
+- What will it be?
 ## Contributing
 
 Feel free to contribute to this project, first fork this repository, then code your suggestions and open a pull request.
