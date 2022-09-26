@@ -128,7 +128,7 @@ export function Profile() {
             
             <AvaliationItem 
                 question="Tem um README só seu?"
-                passed={githubaval?.has_linkedin? true : false }/>
+                passed={githubaval?.has_readme? true : false }/>
 
             <AvaliationItem 
                 question="Colocou seu email no README?"
@@ -191,7 +191,7 @@ export function Profile() {
         <h2
             data-aos="fade-up"  
             className='font-bold text-white text-xl max-w-[250px] text-center mt-16'>
-        Avaliação realizada em: 21 de Setembro de 2022
+        Avaliação realizada em: {githubaval?.evaluation_date}
         </h2>
                 
         {showButton && (            
