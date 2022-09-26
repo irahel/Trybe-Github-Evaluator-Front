@@ -14,7 +14,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import * as HoverCard from '@radix-ui/react-hover-card';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { faL } from '@fortawesome/free-solid-svg-icons';
 
 ChartJS.register(ArcElement);
 
@@ -106,7 +105,8 @@ export function Profile() {
                     data-aos="fade-up"       
                     data-aos-duration="1000"                             
                     src={grade_emoj} 
-                    className='w-20 h-20 absolute top-[210px] right-[5px]'/>
+                    className='w-20 h-20 absolute top-[210px] right-[5px]                    
+                    '/>
 
             </div>
 
@@ -168,17 +168,21 @@ export function Profile() {
 
         </section>
         
-        <div className='flex flex-row items-center justify-center gap-8 mt-14'>
-            <button
-                data-aos="fade-up"  
-                className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
-                rounded-2xl 
-                hover:bg-[#1A9D7E] '>
-                <ArrowDown size={22}  className="text-[#3FBB90] group-hover:text-white"/>
-                <h2 className="text-[#3FBB90]
-                 group-hover:text-white font-semibold text-base
-                 pt-1">Baixar resultado</h2>            
-            </button>
+        <div className='flex flex-row items-center justify-center gap-8 mt-14'>            
+                <button
+                    data-aos="fade-up"  
+                    className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
+                    rounded-2xl 
+                    hover:bg-[#1A9D7E] '
+                    >
+                    <ArrowDown size={22}  className="text-[#3FBB90] group-hover:text-white"/>
+                    <h2 className="text-[#3FBB90]
+                    group-hover:text-white font-semibold text-base
+                    pt-1">                        
+                        Baixar resultado                                                
+                        </h2>            
+                        
+                </button>            
             
             <button
                 data-aos="fade-up"  
@@ -206,7 +210,7 @@ export function Profile() {
                         data-aos="fade-up"
                         className='bg-transparent w-14 h-14 flex items-center justify-center group
                         rounded-full border-[3px] border-white                         
-                        hover:bg-[#1A9D7E]'         
+                        hover:bg-[#1A9D7E]'                        
                         >                                
                             <GithubLogo color='white' size={32} />                          
                         </button>                                                
@@ -217,26 +221,24 @@ export function Profile() {
                     side='right'        
                     className='bg-transparent rounded-2xl border-[2px]
                     border-dashed border-white w-32 h-14
-                    flex items-center justify-center'>
+                    flex items-center justify-center opacity-80
+                    '>
                         
-                        <HoverCard.Arrow width={9} height={9} fill='white'/>
-                        <h3 className='text-white italic text-center
+                        <HoverCard.Arrow className='opacity-80' width={9} height={9} fill='white'/>
+                        <h3 className='text-white italic text-center opacity-80
                         text-sm'>Adicione ao GitHub!</h3>                            
                     </HoverCard.Content>
                 </HoverCard.Portal>
             </HoverCard.Root>
             {copied &&
             <h3 className='absolute pt-16 font-bold text-white text-base'
-                data-aos="fade-down"
-                >
+                data-aos="fade-down">
                 Copiado!
             </h3>
-            }
-            
+            }            
         </div>
 
     </div>
-
         <h2
             data-aos="fade-up"  
             className='font-bold text-white text-xl max-w-[250px] text-center mt-16'>
