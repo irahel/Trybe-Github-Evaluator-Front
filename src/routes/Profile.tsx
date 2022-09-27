@@ -88,7 +88,7 @@ export function Profile() {
                 Seu perfil é nota: 
                 <span
                     data-aos="fade-down"
-                    data-aos-duration="1000"         >  {githubaval?.grade}</span>
+                    data-aos-duration="1000"         >  {Number(githubaval?.grade)/10}</span>
             </h1>
 
             <div className="w-72 h-72 mt-20 relative items-center justify-center">
