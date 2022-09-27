@@ -203,10 +203,10 @@ export function Profile() {
             <HoverCard.Root openDelay={300} closeDelay={100}>
                 <HoverCard.Trigger>
                     <CopyToClipboard 
-                    text={apiMarkdown}
-                    onCopy={() => {
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 666);
+                        text={apiMarkdown}
+                        onCopy={() => {
+                            setCopied(true);
+                            setTimeout(() => setCopied(false), 666);
                     }}
                     >
                         <button

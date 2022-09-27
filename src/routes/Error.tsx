@@ -1,14 +1,17 @@
-import { CircleWavyWarning } from "phosphor-react";
+import { ArrowUUpLeft, CircleWavyWarning } from "phosphor-react";
 import '../styles/main.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Error() {  
     useEffect(() => {
         AOS.init();
         AOS.refresh();
       }, []);
+
+    const navigate = useNavigate();
 
     return (
         <div           
@@ -21,9 +24,20 @@ export function Error() {
             <h1 
                 data-aos="fade-left"       
                 data-aos-duration="350" 
-                className="text-medium text-7xl text-white max-w-6xl text-center mt-12">
-                Ops, looks like an error has occurred, are you lost?
+                className="text-medium text-7xl text-white max-w-4xl text-center mt-12">
+                Ops, parece que algo deu errado!
             </h1>
+
+            <button
+                data-aos="fade-up"  
+                className='mt-12 bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
+                rounded-2xl border-[3px] border-white
+                hover:bg-[#1A9D7E]'
+                onClick={() => navigate('/')}>
+                <ArrowUUpLeft size={22}  className="text-white"/>
+                <h2 className="text-white font-medium text-base pt-1
+                 ">Voltar ao início</h2>            
+            </button>
         </div>
     )
 }

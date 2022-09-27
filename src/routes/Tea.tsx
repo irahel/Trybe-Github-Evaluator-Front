@@ -23,7 +23,7 @@ export function Tea() {
             data-aos="fade-left"       
             data-aos-duration="1500" 
             className="text-medium text-7xl text-white">
-            Yes, I like tea and you sir?
+            Sim, eu gosto de chá e você?
             </h1>
         </div>
     )
