@@ -1,5 +1,5 @@
 import { FormEvent} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MagnifyingGlass } from "phosphor-react";
 import axios from 'axios';
 
@@ -23,19 +23,22 @@ export interface formProps{
 }
 
 export function Search({loadingIndicator, redirectIndicator}: formProps){
-  
+
+  const navigate = useNavigate();
+    
     /*TODO: validações e try catch*/
-    async function handleCalculateAval(event: FormEvent){
-      event.preventDefault();
-      loadingIndicator(true);
-      
-      const formData = new FormData(event.target as HTMLFormElement);
-      const data = Object.fromEntries(formData);     
-      
-      const bodyFormData = new FormData();
-      bodyFormData.append('github_user', data.github_user);
-      bodyFormData.append('refresh', 'true');
-       
+  async function handleCalculateAval(event: FormEvent){
+    event.preventDefault();
+    loadingIndicator(true);
+    
+    const formData = new FormData(event.target as HTMLFormElement);
+    const data = Object.fromEntries(formData);     
+    
+    const bodyFormData = new FormData();
+    bodyFormData.append('github_user', data.github_user);
+    bodyFormData.append('refresh', 'true');
+    
+    try {
       let response = await axios(
         {
           method: "post",
@@ -43,13 +46,25 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
           data: bodyFormData,
           headers: { "Content-Type": "multipart/form-data" }                      
         }
-        );                
+        );        
         redirectIndicator({
           ...response.data
-        });
-        loadingIndicator(false);
-
+        });  
+        loadingIndicator(false);                         
+    } 
+    catch (err: any) 
+    {       
+      if(err.response.status == 412)
+      {
+        navigate('/notfound',{state:data.github_user});
+      }
+      else
+      {
+        navigate('/error');
+      }                  
     }
+     
+  }
 
     return (      
         <form 

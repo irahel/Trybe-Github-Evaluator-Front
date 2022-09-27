@@ -4,6 +4,7 @@ import { Home } from './Home';
 import { Tea } from './Tea'
 import { Profile }  from './Profile';
 import { Error }  from './Error';
+import { NotFound }  from './NotFound';
 import '../styles/main.css';
 
 export default function App() {  
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="aval" element={<Profile />} />
           <Route path="tea"  element={<Tea />} />
           <Route path="418"  element={<Tea />} />
+          <Route path="notfound"  element={<NotFound />} />
           <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
