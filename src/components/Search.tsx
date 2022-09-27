@@ -25,8 +25,7 @@ export interface formProps{
 export function Search({loadingIndicator, redirectIndicator}: formProps){
 
   const navigate = useNavigate();
-    
-    /*TODO: validações e try catch*/
+        
   async function handleCalculateAval(event: FormEvent){
     event.preventDefault();
     loadingIndicator(true);
@@ -104,12 +103,14 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
               className='w-32 h-32 bg-[#30B084] 
               rounded-full absolute left-[463px] 
               border-white border-8
+              flex
+              justify-center
               items-center
               hover:bg-[#0B5A47]
               hover:border-[10px]'              
               >
                 <Link to={`aval/irahel`}/>
-              <MagnifyingGlass className='flex' color='white' size={60} />
+              <MagnifyingGlass color='white' size={60} />
             </button>
           </div>
 
