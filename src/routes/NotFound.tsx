@@ -45,7 +45,7 @@ export function NotFound() {
             data-aos-duration="1000" 
             className='mt-12 bg-transparent w-96 h-20 flex items-center justify-center gap-2 group
             rounded-2xl border-[3px] border-white
-            hover:bg-[#1A9D7E]'
+            hover:bg-[#1DB702]'
             onClick={() => navigate('/')}>
             <FlyingSaucer 
             color='#A0F046'
