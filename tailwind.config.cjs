@@ -13,7 +13,8 @@ module.exports = {
     },
     extend: {
       backgroundImage:{
-        trybe: "url('/background.svg')"
+        trybe: "url('/background.svg')",
+        trybelight: "url('/background-light.svg')"
       }, 
       animation: {
         fadeIn: "fadeIn 2s ease-in forwards"

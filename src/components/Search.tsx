@@ -1,4 +1,4 @@
-import { FormEvent} from "react";
+import { FormEvent, useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MagnifyingGlass } from "phosphor-react";
 import axios from 'axios';
@@ -65,6 +65,17 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
      
   }
 
+  const [darkMode, _setDarkMode] = useState(false);
+  useEffect(() => {
+    const json = localStorage.getItem("site-dark-mode");
+    const currentMode = JSON.parse(json as string);
+    if (currentMode) {
+      _setDarkMode(true);
+    } else {
+      _setDarkMode(false);
+    }
+  }, []);
+  
     return (      
         <form 
         data-aos="fade-right"
@@ -118,7 +129,15 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
           data-aos="zoom-in"
           data-aos-duration="1000"
           className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
-            Ou que tal fazer <a className='text-[#A0F046]'>múltiplas avaliações</a> via csv
+            Ou que tal fazer <a className={`
+              ${darkMode?                       
+                "text-[#A0F046]"
+                
+            :              
+            "text-[#0376E2]"                                        
+            }  `              
+            }
+              >múltiplas avaliações</a> via csv
           </h2>
       </form>      
     )

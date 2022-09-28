@@ -18,22 +18,50 @@ export function Home(){
       navigate('/aval',{state:github_aval});
     }
     const [loading, setLoading] = useState(false);    
+
+    const [darkMode, _setDarkMode] = useState(false);
+    useEffect(() => {
+      const json = localStorage.getItem("site-dark-mode");
+      const currentMode = JSON.parse(json as string);
+      if (currentMode) {
+        _setDarkMode(true);
+      } else {
+        _setDarkMode(false);
+      }
+    }, []);
+      
+    useEffect(() => {
+      if (darkMode) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+      const json = JSON.stringify(darkMode);
+      localStorage.setItem("site-dark-mode", json);
+    }, [darkMode]);
     
     return (
-        <div className='max-w-[1366px] max-h-[768px] mx-auto flex flex-col items-center my-[150px]'>              
+        <div className={
+          `max-w-[1366px] max-h-[768px] mx-auto flex flex-col items-center my-[150px]
+          ${darkMode?                       
+                document.body.classList.add("bg-trybe")                                              
+            :              
+              document.body.classList.add("bg-trybelight")
+            }                      
+          `
+        }>              
           <GithubLogo 
           data-aos="fade-down"
-          data-aos-duration="1000"
-            className=''
+          data-aos-duration="1000"            
             color='white'
             size={100} />
-    
+          
           <h1 
             data-aos="fade-down"
             className='text-white font-black text-6xl mt-8'>
             trybe-github-evaluator
           </h1>
-        
+        {/*{`${darkMode? "text-red-500" : "text-blue-500"}`}*/ }
           <h2 
           data-aos="fade-left"
           className='text-white font-medium italic text-3xl mt-8'>
