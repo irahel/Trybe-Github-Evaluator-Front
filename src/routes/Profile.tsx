@@ -48,18 +48,18 @@ export function Profile() {
       };
     
     const grade_color = 
-        githubaval.grade >= 90? '#0067F5' : 
-        githubaval.grade >= 60? '#8958A3' : 
-        githubaval.grade >= 40? '#A38958' : 
-        githubaval.grade >= 20? '#C12F2F' : 
-                                '#322626';
+        githubaval.grade >= 90? '#1DB702' : 
+        githubaval.grade >= 60? '#0376E2' : 
+        githubaval.grade >= 40? '#FDCF36' : 
+        githubaval.grade >= 20? '#E22859' : 
+                                '#B4B9C0';
     
     const grade_color_hover = 
-        githubaval.grade >= 90? '#0052c4' : 
-        githubaval.grade >= 60? '#6e4682' : 
-        githubaval.grade >= 40? '#826e46' : 
-        githubaval.grade >= 20? '#9a2626' : 
-                                '#281e1e';
+        githubaval.grade >= 90? '#179202' : 
+        githubaval.grade >= 60? '#025eb5' : 
+        githubaval.grade >= 40? '#caa62b' : 
+        githubaval.grade >= 20? '#b52047' : 
+                                '#90949a';
 
     const grade_emoj= 
     githubaval.grade >= 90?  svg90 :  
@@ -176,10 +176,10 @@ export function Profile() {
                     data-aos="fade-up"  
                     className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
                     rounded-2xl 
-                    hover:bg-[#1A9D7E] '
+                    hover:bg-[#1DB702] '
                     >
-                    <ArrowDown size={22}  className="text-[#3FBB90] group-hover:text-white"/>
-                    <h2 className="text-[#3FBB90]
+                    <ArrowDown size={22}  className="text-[#034422] group-hover:text-white"/>
+                    <h2 className="text-[#034422]
                     group-hover:text-white font-semibold text-base
                     pt-1">                           
                         Baixar resultado                                                                    
@@ -191,7 +191,7 @@ export function Profile() {
                 data-aos="fade-up"  
                 className='bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
                 rounded-2xl border-[3px] border-white
-                hover:bg-[#1A9D7E]'
+                hover:bg-[#1DB702]'
                 onClick={() => navigate('/')}>
                 <ArrowsClockwise size={22}  className="text-white"/>
                 <h2 className="text-white font-semibold text-base pt-1
@@ -213,7 +213,7 @@ export function Profile() {
                         data-aos="fade-up"
                         className='bg-transparent w-14 h-14 flex items-center justify-center group
                         rounded-full border-[3px] border-white                         
-                        hover:bg-[#1A9D7E]'                        
+                        hover:bg-[#1DB702]'                        
                         >                                
                             <GithubLogo color='white' size={32} />                          
                         </button>                                                
@@ -250,7 +250,7 @@ export function Profile() {
                 
         {showButton && (            
         <button onClick={scrollToTop} className="back-to-top text-white my-8 animate-bounce">
-          <CaretDoubleUp size={32} />
+          <CaretDoubleUp className='hover:text-[#A0F046]' size={32} />
         </button>
       )}
         
@@ -258,17 +258,17 @@ export function Profile() {
         
         className="text-white text-xl text-center 
         flex items-center justify-center
-        h-24 w-full bg-[#1A9D7E]
+        h-24 w-full bg-[#034422]
         ">
             <h1>
             Developed by:  
             <a 
             className='hover:text-[#B7EECE]'
-            target="_blank" href='https://github.com/irahel'><strong> irahel</strong></a>  and  
+            target="_blank" href='https://github.com/irahel'><strong className='text-[#A0F046] hover:text-[#FCF1CF]'> irahel</strong></a>  and  
 
             <a 
             className='hover:text-[#B7EECE]'
-            target="_blank" href='https://github.com/felipmartins'><strong> felipmartins</strong></a>                          
+            target="_blank" href='https://github.com/felipmartins'><strong className='text-[#A0F046] hover:text-[#FCF1CF]'> felipmartins</strong></a>                          
             </h1>
         </div>
                 

@@ -100,7 +100,7 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
               </label>
             <button 
               data-aos="fade-left"              
-              className='w-32 h-32 bg-[#30B084] 
+              className='w-32 h-32 bg-[#1DB702] 
               rounded-full absolute left-[463px] 
               border-white border-8
               flex
@@ -118,7 +118,7 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
           data-aos="zoom-in"
           data-aos-duration="1000"
           className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
-            Ou que tal fazer <a className='text-[#0B5A47]'>múltiplas avaliações</a> via csv
+            Ou que tal fazer <a className='text-[#A0F046]'>múltiplas avaliações</a> via csv
           </h2>
       </form>      
     )

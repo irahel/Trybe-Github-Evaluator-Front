@@ -20,7 +20,7 @@ export function NotFound() {
         <h1
         data-aos="fade-down" 
             className='text-white font-bold text-6xl'>
-            Seu perfil é nota: <span className='text-[#C12F2F] font-black'>404</span> 
+            Seu perfil é nota: <span className='text-[#A0F046] font-black'>404</span> 
         </h1>
         <div
         data-aos="fade"  
@@ -32,7 +32,7 @@ export function NotFound() {
             <Alien 
             data-aos="flip-up"  
             data-aos-duration="1000"
-             color='white' size={150}/>
+             color='#A0F046' size={150}/>
         </div>
         <h2
         data-aos="fade-up"  
@@ -48,6 +48,7 @@ export function NotFound() {
             hover:bg-[#1A9D7E]'
             onClick={() => navigate('/')}>
             <FlyingSaucer 
+            color='#A0F046'
                 data-aos="fade-up-left"  
                 data-aos-duration="1500" 
             size={40}  className="text-white"/>
