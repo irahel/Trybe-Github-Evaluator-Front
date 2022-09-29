@@ -134,7 +134,7 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
                 "text-[#A0F046]"
                 
             :              
-            "text-[#0376E2]"                                        
+            "text-[#034422]"                                        
             }  `              
             }
               >múltiplas avaliações</a> via csv

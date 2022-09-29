@@ -2,7 +2,7 @@ import { ArrowUUpLeft, CircleWavyWarning } from "phosphor-react";
 import '../styles/main.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function Error() {  
@@ -12,6 +12,22 @@ export function Error() {
       }, []);
 
     const navigate = useNavigate();
+    const [darkMode, _setDarkMode] = useState(false);
+    useEffect(() => {
+      const json = localStorage.getItem("site-dark-mode");
+      const currentMode = JSON.parse(json as string);
+      if (currentMode) {
+        _setDarkMode(true);
+      } else {
+        _setDarkMode(false);
+      }
+    }, []);
+    
+    {darkMode?                       
+        document.body.classList.add("bg-trybe")                                              
+    :              
+        document.body.classList.add("bg-trybelight")
+    } 
 
     return (
         <div           
@@ -30,9 +46,10 @@ export function Error() {
 
             <button
                 data-aos="fade-up"  
-                className='mt-12 bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
+                className={`mt-12 bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
                 rounded-2xl border-[3px] border-white
-                hover:bg-[#1DB702]'
+                ${darkMode? "hover:bg-[#1DB702]" : "hover:bg-[#0B5A47]"}
+                `}
                 onClick={() => navigate('/')}>
                 <ArrowUUpLeft size={22}  className="text-white"/>
                 <h2 className="text-white font-medium text-base pt-1

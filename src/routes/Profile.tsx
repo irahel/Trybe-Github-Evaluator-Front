@@ -48,14 +48,14 @@ export function Profile() {
       };
     
     const grade_color = 
-        githubaval.grade >= 90? '#1DB702' : 
+        githubaval.grade >= 90? '#E76CF2' : 
         githubaval.grade >= 60? '#0376E2' : 
         githubaval.grade >= 40? '#FDCF36' : 
         githubaval.grade >= 20? '#E22859' : 
                                 '#B4B9C0';
     
     const grade_color_hover = 
-        githubaval.grade >= 90? '#179202' : 
+        githubaval.grade >= 90? '#b956c2' : 
         githubaval.grade >= 60? '#025eb5' : 
         githubaval.grade >= 40? '#caa62b' : 
         githubaval.grade >= 20? '#b52047' : 
@@ -79,6 +79,33 @@ export function Profile() {
           }
         ]
       };
+    
+      const [darkMode, _setDarkMode] = useState(false);
+    useEffect(() => {
+      const json = localStorage.getItem("site-dark-mode");
+      const currentMode = JSON.parse(json as string);
+      if (currentMode) {
+        _setDarkMode(true);
+      } else {
+        _setDarkMode(false);
+      }
+    }, []);
+      
+    useEffect(() => {
+      if (darkMode) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+      const json = JSON.stringify(darkMode);
+      localStorage.setItem("site-dark-mode", json);
+    }, [darkMode]);
+    
+    {darkMode?                       
+      document.body.classList.add("bg-trybe")                                              
+    :              
+      document.body.classList.add("bg-trybelight")
+    }
 
     return (
     <div className='flex flex-col items-center scrollbar-hide'>      
@@ -174,14 +201,17 @@ export function Profile() {
         <div className='flex flex-row items-center justify-center gap-8 mt-14'>                                  
                 <button
                     data-aos="fade-up"  
-                    className='bg-white w-48 h-14 flex items-center justify-center gap-2 group
+                    className={`bg-white w-48 h-14 flex items-center justify-center gap-2 group
                     rounded-2xl 
-                    hover:bg-[#1DB702] '
+                    ${darkMode? "hover:bg-[#1DB702]" : "hover:bg-[#034422]" }
+                     `}
                     >
-                    <ArrowDown size={22}  className="text-[#034422] group-hover:text-white"/>
-                    <h2 className="text-[#034422]
+                    <ArrowDown size={22}  className={`
+                    ${darkMode? "text-[#034422]" : "text-[#1DB702]"} group-hover:text-white`}/>
+                    <h2 className={`
+                    ${darkMode? "text-[#034422]" : "text-[#1DB702]"}
                     group-hover:text-white font-semibold text-base
-                    pt-1">                           
+                    pt-1`}>                           
                         Baixar resultado                                                                    
                     </h2>                                    
                 </button>            
@@ -189,9 +219,10 @@ export function Profile() {
             
             <button
                 data-aos="fade-up"  
-                className='bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
+                className={`bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
                 rounded-2xl border-[3px] border-white
-                hover:bg-[#1DB702]'
+                ${darkMode? "hover:bg-[#1DB702]" : "hover:bg-[#034422]"}
+                `}
                 onClick={() => navigate('/')}>
                 <ArrowsClockwise size={22}  className="text-white"/>
                 <h2 className="text-white font-semibold text-base pt-1
@@ -211,9 +242,9 @@ export function Profile() {
                     >
                         <button
                         data-aos="fade-up"
-                        className='bg-transparent w-14 h-14 flex items-center justify-center group
+                        className={`bg-transparent w-14 h-14 flex items-center justify-center group
                         rounded-full border-[3px] border-white                         
-                        hover:bg-[#1DB702]'                        
+                        ${darkMode? "hover:bg-[#1DB702]" : "hover:bg-[#034422]"}`}
                         >                                
                             <GithubLogo color='white' size={32} />                          
                         </button>                                                
@@ -250,25 +281,37 @@ export function Profile() {
                 
         {showButton && (            
         <button onClick={scrollToTop} className="back-to-top text-white my-8 animate-bounce">
-          <CaretDoubleUp className='hover:text-[#A0F046]' size={32} />
+          <CaretDoubleUp className={`
+          ${darkMode? "hover:text-[#A0F046]" : "hover:text-[#034422]" }
+            `} size={32} />
         </button>
       )}
         
-        <div 
-        
-        className="text-white text-xl text-center 
-        flex items-center justify-center
-        h-24 w-full bg-[#034422]
-        ">
+        <div         
+            className={`text-white text-xl text-center 
+            flex items-center justify-center
+            h-24 w-full 
+            ${darkMode? "bg-[#034422]" : "bg-[#1FC101]"}`}
+        >
             <h1>
             Developed by:  
             <a 
             className='hover:text-[#B7EECE]'
-            target="_blank" href='https://github.com/irahel'><strong className='text-[#A0F046] hover:text-[#FCF1CF]'> irahel</strong></a>  and  
+            target="_blank" href='https://github.com/irahel'><strong className={`
+            ${darkMode? "text-[#A0F046] hover:text-[#FCF1CF]"
+            :
+            "text-[#0376E2] hover:text-[#FCF1CF]"}
+            `            
+            }> irahel</strong></a>  and  
 
             <a 
             className='hover:text-[#B7EECE]'
-            target="_blank" href='https://github.com/felipmartins'><strong className='text-[#A0F046] hover:text-[#FCF1CF]'> felipmartins</strong></a>                          
+            target="_blank" href='https://github.com/felipmartins'><strong className={`
+            ${darkMode? "text-[#A0F046] hover:text-[#FCF1CF]"
+            :
+            "text-[#0376E2] hover:text-[#FCF1CF]"}
+            `            
+            }> felipmartins</strong></a>                          
             </h1>
         </div>
                 

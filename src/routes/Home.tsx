@@ -40,15 +40,15 @@ export function Home(){
       localStorage.setItem("site-dark-mode", json);
     }, [darkMode]);
     
+    {darkMode?                       
+      document.body.classList.add("bg-trybe")                                              
+    :              
+      document.body.classList.add("bg-trybelight")
+    }
+
     return (
         <div className={
-          `max-w-[1366px] max-h-[768px] mx-auto flex flex-col items-center my-[150px]
-          ${darkMode?                       
-                document.body.classList.add("bg-trybe")                                              
-            :              
-              document.body.classList.add("bg-trybelight")
-            }                      
-          `
+          `max-w-[1366px] max-h-[768px] mx-auto flex flex-col items-center my-[150px]`
         }>              
           <GithubLogo 
           data-aos="fade-down"
