@@ -189,27 +189,27 @@ export function Profile() {
                 passed={githubaval?.has_linkedin? true : false}/>
             
             <AvaliationItem 
-                question="Tem mais de 4 tecnologias no seu README?"
+                question="Tem 5 ou mais tecnologias no seu README?"
                 passed={githubaval?.has_five_or_more_stacks? true : false}/>
 
             <AvaliationItem 
-                question="Tem mais de 9 tecnologias no seu README?"
+                question="Tem 10 ou mais tecnologias no seu README?"
                 passed={githubaval?.has_ten_or_more_stacks? true : false}/>
 
             <AvaliationItem 
-                question="Tem mais de 4 repositórios públicos no seu GitHub?"
+                question="Tem 4 ou mais repositórios públicos no seu GitHub?"
                 passed={githubaval?.has_five_or_more_repos? true : false}/>
 
             <AvaliationItem 
-                question="Tem mais de 9 repositórios públicos no seu GitHub?"
+                question="Tem 10 ou mais repositórios públicos no seu GitHub?"
                 passed={githubaval?.has_ten_or_more_repos? true : false}/>
 
             <AvaliationItem 
-                question="Tem mais de 1 repositório fixado no seu perfil?"
+                question="Tem no mínimo 2 repositórios fixados no seu perfil?"
                 passed={githubaval?.has_two_or_more_pinned? true : false}/>
 
             <AvaliationItem 
-                question="Tem mais de 4 repositórios fixado no seu perfil?"
+                question="Tem 4 ou mais repositórios fixados no seu perfil?"
                 passed={githubaval?.has_four_or_more_pinned? true : false}/>
 
         </section>
