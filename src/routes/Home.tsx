@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { GithubLogo, Moon, Sun } from "phosphor-react";
 import { Search } from '../components/Search';
 import { Loading } from "../components/Loading";
 import { responseProps } from '../components/Search';
+import {loadDarkState, setDarkState} from "../utils/DarkMode";
+import { GithubLogo, Moon, Sun } from "phosphor-react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {loadDarkState, setDarkState} from "../utils/DarkMode";
 
 
 export function Home(){

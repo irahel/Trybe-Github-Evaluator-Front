@@ -1,10 +1,10 @@
+import { loadDarkState, setDarkState } from "../utils/DarkMode";
 import { ArrowUUpLeft, CircleWavyWarning } from "phosphor-react";
-import '../styles/main.css';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { loadDarkState, setDarkState } from "../utils/DarkMode";
+import '../styles/main.css';
 
 export function Error() {  
     useEffect(() => {

@@ -1,10 +1,10 @@
-import '../styles/main.css';
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { loadDarkState, setDarkState } from '../utils/DarkMode';
+import { Alien, FlyingSaucer } from 'phosphor-react';
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Alien, FlyingSaucer } from 'phosphor-react';
-import { loadDarkState, setDarkState } from '../utils/DarkMode';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import '../styles/main.css';
 
 
 export function NotFound() {  

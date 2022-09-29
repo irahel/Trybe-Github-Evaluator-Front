@@ -1,20 +1,27 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement } from 'chart.js';
-import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, GithubLogo, Moon, Sun } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
-import '../styles/main.css';
+import { setDarkState } from '../utils/DarkMode';
 import svg90 from '../../public/emojs/90.svg'
 import svg60 from '../../public/emojs/60.svg'
 import svg40 from '../../public/emojs/40.svg'
 import svg20 from '../../public/emojs/20.svg'
 import svg0 from '../../public/emojs/0.svg'
+import * as HoverCard from '@radix-ui/react-hover-card';
+import { 
+    ArrowDown, 
+    ArrowsClockwise, 
+    CaretDoubleDown, 
+    CaretDoubleUp, 
+    GithubLogo, 
+    Moon, 
+    Sun } from 'phosphor-react';
+import { useEffect, useState } from 'react';
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement } from 'chart.js';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useLocation, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import * as HoverCard from '@radix-ui/react-hover-card';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { setDarkState } from '../utils/DarkMode';
+import '../styles/main.css';
 
 
 ChartJS.register(ArcElement);
