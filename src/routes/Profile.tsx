@@ -41,6 +41,13 @@ export function Profile() {
     const [darkMode, _setDarkMode] = useState(location.state.darkMode);
                 
     useEffect(() => {
+    if (darkMode) {
+        document.body.classList.remove("bg-trybelight");
+        document.body.classList.add("bg-trybe");        
+        } else {
+        document.body.classList.remove("bg-trybe");
+        document.body.classList.add("bg-trybelight");
+        }
       setDarkState(darkMode)
     }, [darkMode]);
     

@@ -24,6 +24,13 @@ export function Home(){
     const [darkMode, _setDarkMode] = useState(loadDarkState());
                 
     useEffect(() => {
+      if (darkMode) {
+        document.body.classList.remove("bg-trybelight");
+        document.body.classList.add("bg-trybe");        
+      } else {
+        document.body.classList.remove("bg-trybe");
+        document.body.classList.add("bg-trybelight");
+      }
       setDarkState(darkMode)
     }, [darkMode]);
         
