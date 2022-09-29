@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement } from 'chart.js';
-import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, GithubLogo } from 'phosphor-react';
+import { ArrowDown, ArrowsClockwise, CaretDoubleDown, CaretDoubleUp, GithubLogo, Moon, Sun } from 'phosphor-react';
 import { AvaliationItem } from '../components/AvaliationItem';
 import '../styles/main.css';
 import svg90 from '../../public/emojs/90.svg'
@@ -14,6 +14,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import * as HoverCard from '@radix-ui/react-hover-card';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { setDarkState } from '../utils/DarkMode';
 
 
 ChartJS.register(ArcElement);
@@ -29,8 +30,16 @@ export function Profile() {
     const navigate = useNavigate();
     const location = useLocation();
     const githubaval = location.state;
+
+    const [darkMode, _setDarkMode] = useState(location.state.darkMode);
+                
+    useEffect(() => {
+      setDarkState(darkMode)
+    }, [darkMode]);
+    
     const [showButton, setShowButton] = useState(false);
     const [copied, setCopied] = useState(false);
+    
 
     const apiMarkdown = `<img src='https://tgs.fly.dev/${githubaval?.github_user}'/>`
       
@@ -62,11 +71,11 @@ export function Profile() {
                                 '#90949a';
 
     const grade_emoj= 
-    githubaval.grade >= 90?  svg90 :  
-    githubaval.grade >= 60?  svg60 : 
-    githubaval.grade >= 40?  svg40 : 
-    githubaval.grade >= 20?  svg20: 
-                             svg0   
+        githubaval.grade >= 90?  svg90 :  
+        githubaval.grade >= 60?  svg60 : 
+        githubaval.grade >= 40?  svg40 : 
+        githubaval.grade >= 20?  svg20: 
+                                svg0   
 
     const data = {
         labels: ["I"],
@@ -80,36 +89,29 @@ export function Profile() {
         ]
       };
     
-      const [darkMode, _setDarkMode] = useState(false);
-    useEffect(() => {
-      const json = localStorage.getItem("site-dark-mode");
-      const currentMode = JSON.parse(json as string);
-      if (currentMode) {
-        _setDarkMode(true);
-      } else {
-        _setDarkMode(false);
-      }
-    }, []);
-      
-    useEffect(() => {
-      if (darkMode) {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-      const json = JSON.stringify(darkMode);
-      localStorage.setItem("site-dark-mode", json);
-    }, [darkMode]);
     
-    {darkMode?                       
-      document.body.classList.add("bg-trybe")                                              
-    :              
-      document.body.classList.add("bg-trybelight")
-    }
-
+      
     return (
-    <div className='flex flex-col items-center scrollbar-hide'>      
+    <div className='flex flex-col items-center scrollbar-hide'>     
+        {darkMode? 
+          <Moon
+            className="self-end mr-12 mt-8
+            text-[#1DB702]
+            hover:text-[#A0F046]
+            text-[50px]"
+            onClick={() => _setDarkMode(false)}                    
+            />
+            :
+          <Sun
+            className="self-end mr-12 mt-8
+            text-[#A0F046]
+            hover:text-[#034422]
+            text-[50px]"
+            onClick={() => _setDarkMode(true)}                    
+            />
+          }         
         <section className='h-screen flex flex-col items-center justify-center'>
+            
             <h1                 
                 className='text-white font-bold text-6xl flex flex-row justify-center'>
                 Seu perfil é nota: 

@@ -1,22 +1,10 @@
-import { useEffect, useState } from "react";
+import { darkModeProps } from "../utils/DarkMode";
 
-export function Loading(){
-    const [darkMode, _setDarkMode] = useState(false);
-    useEffect(() => {
-      const json = localStorage.getItem("site-dark-mode");
-      const currentMode = JSON.parse(json as string);
-      if (currentMode) {
-        _setDarkMode(true);
-      } else {
-        _setDarkMode(false);
-      }
-    }, []);
-    
-
+export function Loading({darkMode}:darkModeProps){    
     return (
     <div
-    data-aos="fade-down"
-    data-aos-duration="1500">
+      data-aos="fade-down"
+      data-aos-duration="1500">
         <div         
             className="flex justify-center items-center mt-20">
             <div className="flex items-center gap-2 text-gray-500">

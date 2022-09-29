@@ -3,29 +3,17 @@ import '../styles/main.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import { loadDarkState, setDarkState } from "../utils/DarkMode";
 
 export function Tea() {  
     useEffect(() => {
         AOS.init();
         AOS.refresh();
       }, []);
-
-    const [darkMode, _setDarkMode] = useState(false);
-    useEffect(() => {
-      const json = localStorage.getItem("site-dark-mode");
-      const currentMode = JSON.parse(json as string);
-      if (currentMode) {
-        _setDarkMode(true);
-      } else {
-        _setDarkMode(false);
-      }
-    }, []);
     
-    {darkMode?                       
-        document.body.classList.add("bg-trybe")                                              
-    :              
-        document.body.classList.add("bg-trybelight")
-    } 
+    useEffect(() => {
+      setDarkState(loadDarkState());
+    }, []);
     
     return (
         <div           

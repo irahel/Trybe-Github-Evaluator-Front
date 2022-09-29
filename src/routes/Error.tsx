@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loadDarkState, setDarkState } from "../utils/DarkMode";
 
 export function Error() {  
     useEffect(() => {
@@ -12,22 +13,11 @@ export function Error() {
       }, []);
 
     const navigate = useNavigate();
-    const [darkMode, _setDarkMode] = useState(false);
-    useEffect(() => {
-      const json = localStorage.getItem("site-dark-mode");
-      const currentMode = JSON.parse(json as string);
-      if (currentMode) {
-        _setDarkMode(true);
-      } else {
-        _setDarkMode(false);
-      }
-    }, []);
     
-    {darkMode?                       
-        document.body.classList.add("bg-trybe")                                              
-    :              
-        document.body.classList.add("bg-trybelight")
-    } 
+    const darkMode = loadDarkState();
+    useEffect(() => {
+      setDarkState(darkMode);
+    }, []);
 
     return (
         <div           

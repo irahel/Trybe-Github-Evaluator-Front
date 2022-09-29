@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Alien, FlyingSaucer } from 'phosphor-react';
+import { loadDarkState, setDarkState } from '../utils/DarkMode';
+
 
 export function NotFound() {  
     useEffect(() => {
@@ -14,15 +16,9 @@ export function NotFound() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [darkMode, _setDarkMode] = useState(false);
+    const darkMode = loadDarkState();
     useEffect(() => {
-      const json = localStorage.getItem("site-dark-mode");
-      const currentMode = JSON.parse(json as string);
-      if (currentMode) {
-        _setDarkMode(true);
-      } else {
-        _setDarkMode(false);
-      }
+      setDarkState(darkMode);
     }, []);
       
     return (

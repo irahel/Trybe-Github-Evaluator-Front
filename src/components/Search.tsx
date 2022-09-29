@@ -2,6 +2,8 @@ import { FormEvent, useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MagnifyingGlass } from "phosphor-react";
 import axios from 'axios';
+import { darkModeProps } from "../utils/DarkMode";
+
 
 export interface responseProps{
   github_user: string,
@@ -17,12 +19,12 @@ export interface responseProps{
   has_four_or_more_pinned: boolean,
   grade: number
 }
-export interface formProps{
+export interface formProps extends darkModeProps{
   loadingIndicator: Function,
-  redirectIndicator: Function  
+  redirectIndicator: Function
 }
 
-export function Search({loadingIndicator, redirectIndicator}: formProps){
+export function Search({loadingIndicator, redirectIndicator, darkMode}: formProps){
 
   const navigate = useNavigate();
         
@@ -64,18 +66,7 @@ export function Search({loadingIndicator, redirectIndicator}: formProps){
     }
      
   }
-
-  const [darkMode, _setDarkMode] = useState(false);
-  useEffect(() => {
-    const json = localStorage.getItem("site-dark-mode");
-    const currentMode = JSON.parse(json as string);
-    if (currentMode) {
-      _setDarkMode(true);
-    } else {
-      _setDarkMode(false);
-    }
-  }, []);
-  
+     
     return (      
         <form 
         data-aos="fade-right"
