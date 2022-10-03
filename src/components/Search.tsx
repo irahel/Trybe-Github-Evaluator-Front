@@ -72,7 +72,7 @@ export function Search({
         <input
           className="rounded-full w-[580px] h-20 bg-white
               text-2xl text-[#0B5A47]
-              pl-9                 
+              pl-9
               peer
               outline-none"
           required
@@ -83,25 +83,25 @@ export function Search({
         <label
           htmlFor="github_user"
           className="transform transition-transform
-                absolute top-0 left-0 h-full flex 
-                items-center 
+                absolute top-0 left-0 h-full flex
+                items-center
                 group-focus-within:text-2xl
                 group-focus-within:text-white
-                peer-valid:text-2xl 
-                group-focus-within:h-1/2 
-                peer-valid:h-1/2 
-                group-focus-within:-translate-y-full 
-                peer-valid:-translate-y-full 
+                peer-valid:text-2xl
+                group-focus-within:h-1/2
+                peer-valid:h-1/2
+                group-focus-within:-translate-y-full
+                peer-valid:-translate-y-full
                 group-focus-within:pl-6 peer-valid:pl-6
-                text-opacity-40 text-2xl text-black pl-9                        
+                text-opacity-40 text-2xl text-black pl-9
               "
         >
           Digite o usuário do seu Github:
         </label>
         <button
           data-aos="fade-left"
-          className="w-32 h-32 bg-[#1DB702] 
-              rounded-full absolute left-[463px] 
+          className="w-32 h-32 bg-[#1DB702]
+              rounded-full absolute left-[463px]
               border-white border-8
               flex
               justify-center
