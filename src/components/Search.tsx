@@ -115,7 +115,7 @@ export function Search({loadingIndicator, redirectIndicator, darkMode}: formProp
               <MagnifyingGlass color='white' size={60} />
             </button>
           </div>
-
+          {/* 
           <h2 
           data-aos="zoom-in"
           data-aos-duration="1000"
@@ -130,6 +130,7 @@ export function Search({loadingIndicator, redirectIndicator, darkMode}: formProp
             }
               >múltiplas avaliações</a> via csv
           </h2>
+          */}
       </form>      
     )
 }
