@@ -1,91 +1,88 @@
-import { FormEvent, useEffect, useState} from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MagnifyingGlass } from "phosphor-react";
 import { darkModeProps } from "../utils/DarkMode";
-import axios from 'axios';
+import axios from "axios";
 
-
-export interface responseProps{
-  github_user: string,
-  img_url: string,
-  has_photo: boolean,
-  has_email: boolean,
-  has_linkedin: boolean,
-  has_five_or_more_stacks: boolean,
-  has_ten_or_more_stacks: boolean,
-  has_five_or_more_repos: boolean,
-  has_ten_or_more_repos: boolean,
-  has_two_or_more_pinned: boolean,
-  has_four_or_more_pinned: boolean,
-  grade: number
+export interface responseProps {
+  github_user: string;
+  img_url: string;
+  has_photo: boolean;
+  has_email: boolean;
+  has_linkedin: boolean;
+  has_five_or_more_stacks: boolean;
+  has_ten_or_more_stacks: boolean;
+  has_five_or_more_repos: boolean;
+  has_ten_or_more_repos: boolean;
+  has_two_or_more_pinned: boolean;
+  has_four_or_more_pinned: boolean;
+  grade: number;
 }
-export interface formProps extends darkModeProps{
-  loadingIndicator: Function,
-  redirectIndicator: Function
+export interface formProps extends darkModeProps {
+  loadingIndicator: Function;
+  redirectIndicator: Function;
 }
 
-export function Search({loadingIndicator, redirectIndicator, darkMode}: formProps){
-
+export function Search({
+  loadingIndicator,
+  redirectIndicator,
+  darkMode,
+}: formProps) {
   const navigate = useNavigate();
-        
-  async function handleCalculateAval(event: FormEvent){
+
+  async function handleCalculateAval(event: FormEvent) {
     event.preventDefault();
     loadingIndicator(true);
-    
+
     const formData = new FormData(event.target as HTMLFormElement);
-    const data = Object.fromEntries(formData);     
-    
+    const data = Object.fromEntries(formData);
+
     const bodyFormData = new FormData();
-    bodyFormData.append('github_user', data.github_user);
-    bodyFormData.append('refresh', 'true');
-    
+    bodyFormData.append("github_user", data.github_user);
+    bodyFormData.append("refresh", "true");
+
     try {
-      let response = await axios(
-        {
-          method: "post",
-          url: "https://avaliadorgit.com/teste/",
-          data: bodyFormData,
-          headers: { "Content-Type": "multipart/form-data" }                      
-        }
-        );        
-        redirectIndicator({
-          ...response.data
-        });  
-        loadingIndicator(false);                         
-    } 
-    catch (err: any) 
-    {       
-      if(err.response.status == 412)
-      {
-        navigate('/notfound',{state:data.github_user});
+      let response = await axios({
+        method: "post",
+        url: "https://avaliadorgit.com/teste/",
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      redirectIndicator({
+        ...response.data,
+      });
+      loadingIndicator(false);
+    } catch (err: any) {
+      if (err.response.status == 412) {
+        navigate("/notfound", { state: data.github_user });
+      } else {
+        navigate("/error");
       }
-      else
-      {
-        navigate('/error');
-      }                  
     }
-     
   }
-     
-    return (      
-        <form 
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        className='mt-32 ' onSubmit={handleCalculateAval} >
-          <div className='relative items-center flex group'>
-            <input 
-            
-              className="rounded-full w-[580px] h-20 bg-white
+
+  return (
+    <form
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      className="mt-32 "
+      onSubmit={handleCalculateAval}
+    >
+      <div className="relative items-center flex group">
+        <input
+          className="rounded-full w-[580px] h-20 bg-white
               text-2xl text-[#0B5A47]
               pl-9                 
               peer
               outline-none"
-              required
-              name="github_user"
-              id="github_user" 
-              type="text"                   
-              />
-              <label htmlFor="github_user" className="transform transition-transform
+          required
+          name="github_user"
+          id="github_user"
+          type="text"
+        />
+        <label
+          htmlFor="github_user"
+          className="transform transition-transform
                 absolute top-0 left-0 h-full flex 
                 items-center 
                 group-focus-within:text-2xl
@@ -97,40 +94,25 @@ export function Search({loadingIndicator, redirectIndicator, darkMode}: formProp
                 peer-valid:-translate-y-full 
                 group-focus-within:pl-6 peer-valid:pl-6
                 text-opacity-40 text-2xl text-black pl-9                        
-              ">
-                Digite o usuário do seu Github:
-              </label>
-            <button 
-              data-aos="fade-left"              
-              className='w-32 h-32 bg-[#1DB702] 
+              "
+        >
+          Digite o usuário do seu Github:
+        </label>
+        <button
+          data-aos="fade-left"
+          className="w-32 h-32 bg-[#1DB702] 
               rounded-full absolute left-[463px] 
               border-white border-8
               flex
               justify-center
               items-center
               hover:bg-[#0B5A47]
-              hover:border-[10px]'              
-              >
-                <Link to={`aval/irahel`}/>
-              <MagnifyingGlass color='white' size={60} />
-            </button>
-          </div>
-          {/* 
-          <h2 
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          className='text-white text-start font-medium italic text-xl mt-2 pl-8'>
-            Ou que tal fazer <a className={`
-              ${darkMode?                       
-                "text-[#A0F046]"
-                
-            :              
-            "text-[#034422]"                                        
-            }  `              
-            }
-              >múltiplas avaliações</a> via csv
-          </h2>
-          */}
-      </form>      
-    )
+              hover:border-[10px]"
+        >
+          <Link to={`aval/irahel`} />
+          <MagnifyingGlass color="white" size={60} />
+        </button>
+      </div>
+    </form>
+  );
 }
