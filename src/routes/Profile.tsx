@@ -221,6 +221,7 @@ export function Profile() {
                     rounded-2xl 
                     ${darkMode? "hover:bg-[#1DB702]" : "hover:bg-[#034422]" }
                      `}
+                     onClick={() => navigate('/')}
                     >
                     <ArrowDown size={22}  className={`
                     ${darkMode? "text-[#034422]" : "text-[#1DB702]"} group-hover:text-white`}/>
@@ -228,24 +229,10 @@ export function Profile() {
                     ${darkMode? "text-[#034422]" : "text-[#1DB702]"}
                     group-hover:text-white font-semibold text-base
                     pt-1`}>                           
-                        Baixar resultado                                                                    
+                        Fazer novo teste                                                                   
                     </h2>                                    
                 </button>            
-                        
-            
-            <button
-                data-aos="fade-up"  
-                className={`bg-transparent w-48 h-14 flex items-center justify-center gap-2 group
-                rounded-2xl border-[3px] border-white
-                ${darkMode? "hover:bg-[#1DB702]" : "hover:bg-[#034422]"}
-                `}
-                onClick={() => navigate('/')}>
-                <ArrowsClockwise size={22}  className="text-white"/>
-                <h2 className="text-white font-semibold text-base pt-1
-                 ">Fazer novo teste</h2>            
-            </button>
-
-            
+                            
         <div className='flex justify-center'>
             <HoverCard.Root openDelay={300} closeDelay={100}>
                 <HoverCard.Trigger>
