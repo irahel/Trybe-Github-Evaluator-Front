@@ -44,7 +44,7 @@ export function Search({
     try {
       let response = await axios({
         method: "post",
-        url: "http://github-profile-evaluator.betrybe.dev/evaluation/",
+        url: "https://github-profile-evaluator.betrybe.dev/evaluation/",
         data: bodyFormData,
         headers: { "Content-Type": "multipart/form-data" },
       });
